@@ -1,0 +1,7 @@
+production:
+  adapter: mysql2
+  host: <%= ENV['DB_PORT_3306_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_3306_TCP_PORT'] || "3306" %>
+  database: <%= ENV['DB_ENV_MYSQL_DATABASE'] %>
+  username: <%= ENV['DB_ENV_MYSQL_USER'] %>
+  password: <%= ENV['DB_ENV_MYSQL_PASSWORD'] %>
