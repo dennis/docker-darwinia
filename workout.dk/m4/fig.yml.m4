@@ -7,8 +7,8 @@ web:
     links:
         - "db"
     volumes:
-        - VOLUMES/log/:/var/log
-        - VOLUMES/rails-log/:/home/app/workout_website/log
+        - VOLUMES/web/log/:/var/log
+        - VOLUMES/web/rails-log/:/home/app/workout_website/log
 
 db:
     image: mysql
@@ -18,6 +18,8 @@ db:
         - "dbdatastore"
     volumes_from:
         - "dbdatastore"
+    volumes:
+        - VOLUMES/db/log/:/var/log
     environment:
         MYSQL_ROOT_PASSWORD: mysecretpassword
         MYSQL_USER: workoutdk
@@ -27,4 +29,5 @@ db:
 dbdatastore:
     image: busybox
     volumes: 
-        - VOLUMES/mysql:/var/lib/mysql
+        - VOLUMES/dbdatastore/mysql:/var/lib/mysql
+        - VOLUMES/dbdatastore/log/:/var/log
