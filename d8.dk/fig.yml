@@ -1,6 +1,8 @@
 web:
-    build: d8.dk
+    build: d8dk-web
     ports:
         - "80"
     environment:
         VIRTUAL_HOST: "d8.dk"
+    hostname: d8.dk
+

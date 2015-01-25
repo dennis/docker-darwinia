@@ -1,6 +1,7 @@
 include(`config.m4')
 
 web:
+	hostname: workoutdk-web
     build: web
     ports:
         - "3000:80"
@@ -13,6 +14,7 @@ web:
         - VOLUMES/web/rails-log/:/home/app/workout_website/log
 
 db:
+	hostname: workoutdk-db
     image: mysql
     ports:
         - "3306"
@@ -29,6 +31,7 @@ db:
         MYSQL_DATABASE: workoutdk
 
 dbdatastore:
+	hostname: workoutdk-datastore
     image: busybox
     volumes: 
         - VOLUMES/dbdatastore/mysql:/var/lib/mysql
