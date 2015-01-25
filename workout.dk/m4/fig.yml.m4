@@ -6,6 +6,8 @@ web:
         - "3000:80"
     links:
         - "db"
+    environment:
+        VIRTUAL_HOST: "workout.dk"
     volumes:
         - VOLUMES/web/log/:/var/log
         - VOLUMES/web/rails-log/:/home/app/workout_website/log
