@@ -7,6 +7,7 @@ web:
         - "3000:80"
     links:
         - "db"
+        - "smtp"
     environment:
         VIRTUAL_HOST: "workout.dk"
     volumes:
@@ -36,3 +37,11 @@ dbdatastore:
     volumes: 
         - VOLUMES/dbdatastore/mysql:/var/lib/mysql
         - VOLUMES/dbdatastore/log/:/var/log
+
+smtp:
+	hostname: workoutdk-smtp
+    build: smtp
+    environment:
+        SMTP_GATEWAY: "mail.moellegaard.dk"
+        HOSTNAME: "docker.moellegaard.dk"
+
