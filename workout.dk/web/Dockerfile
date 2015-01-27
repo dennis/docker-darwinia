@@ -14,6 +14,7 @@ ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
 ADD app.tar.gz /home/app/workout_website/
 WORKDIR /home/app/workout_website
 ADD database.yml /home/app/workout_website/config/database.yml
+ADD production.rb /home/app/workout_website/config/environments/production.rb
 RUN chown -R app:app /home/app/workout_website
 RUN sudo -u app bundle install --deployment --without=test,development
 RUN sudo -u app RAILS_ENV=production bundle exec rake assets:precompile
